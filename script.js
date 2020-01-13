@@ -8,20 +8,25 @@ function displayTodos() {
     console.log('My todos: ', todos);
 }
 
-displayTodos()
+displayTodos();
 
 // Добавление новых данных
 
 function addNewTodo(todo) {
     todos.push(todo);
-    displayTodos()
+    displayTodos();
 }
 
 addNewTodo('item 4');
 
 // Изменение данных 
 
-todos[0] = 'start';
+function changeTodo(position, newValue) {
+    todos[position] = newValue;
+    displayTodos();
+}
+
+changeTodo(2, 'new todo');
 
 // Удаление данных
 
