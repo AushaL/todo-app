@@ -30,6 +30,10 @@ changeTodo(2, 'new todo');
 
 // Удаление данных
 
-todos.splice(0, 1);
+function deleteTodo(position) {
+    todos.splice(position, 1);
+    displayTodos();
+}
 
+deleteTodo(1);
 
