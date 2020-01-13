@@ -12,7 +12,12 @@ displayTodos()
 
 // Добавление новых данных
 
-todos.push('item 4');
+function addNewTodo(todo) {
+    todos.push(todo);
+    displayTodos()
+}
+
+addNewTodo('item 4');
 
 // Изменение данных 
 
