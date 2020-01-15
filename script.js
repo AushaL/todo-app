@@ -1,18 +1,12 @@
 var todoList = {
-    todos: ['item 1', 'item 2', 'item 3']
-}
+    todos: ['item 1', 'item 2', 'item 3'], // Сохранение данных
+    displayTodos: function() {
+        console.log('My todos: ', this.todos); // Вывод данных
+    }
 
-// Сохранение данных
+};
 
-var todos = ['item 1', 'item 2', 'item 3'];
-
-// Вывод данных
-
-function displayTodos() {
-    console.log('My todos: ', todos);
-}
-
-displayTodos();
+todoList.displayTodos();
 
 // Добавление новых данных
 
