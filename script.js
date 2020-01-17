@@ -1,9 +1,17 @@
 var todoList = {
     todos: [], // Сохранение данных
     displayTodos: function() {
-        console.log('My todos:'); // Вывод данных
-        for (var i = 0; i < this.todos.length; i++) {
-            console.log(this.todos[i].todoText);
+        if (this.todos.length === 0) {
+            console.log('Your todo list is empty!');
+        } else {
+            console.log('My todos:'); // Вывод данных
+            for (var i = 0; i < this.todos.length; i++) {
+                if (this.todos[i].completed === true) {
+                    console.log('(x)', this.todos[i].todoText);
+                } else {
+                    console.log('( )', this.todos[i].todoText);
+                }
+            }
         }
     },
     addNewTodo: function(todoText) {  // Добавление новых данных
@@ -28,8 +36,12 @@ var todoList = {
     }
 };
 
-todoList.addNewTodo('item 4');
-todoList.changeTodo(0, 'new todo');
-// todoList.deleteTodo(2);
 
+todoList.addNewTodo('item 1');
 todoList.toggleCompleted(0);
+todoList.addNewTodo('item 2');
+todoList.addNewTodo('item 3');
+todoList.addNewTodo('item 4');
+todoList.addNewTodo('item 5');
+todoList.toggleCompleted(4);
+todoList.toggleCompleted(2);
