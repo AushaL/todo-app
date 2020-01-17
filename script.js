@@ -1,7 +1,10 @@
 var todoList = {
     todos: [], // Сохранение данных
     displayTodos: function() {
-        console.log('My todos: ', this.todos); // Вывод данных
+        console.log('My todos:'); // Вывод данных
+        for (var i = 0; i < this.todos.length; i++) {
+            console.log(this.todos[i].todoText);
+        }
     },
     addNewTodo: function(todoText) {  // Добавление новых данных
         this.todos.push({
@@ -30,6 +33,3 @@ todoList.changeTodo(0, 'new todo');
 // todoList.deleteTodo(2);
 
 todoList.toggleCompleted(0);
-
-
-
