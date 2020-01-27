@@ -56,14 +56,71 @@ var todoList = { // 0. Объект включает в себя весь фун
     }
 };
 
+var handlers = {
+    displayTodos: function() {
+        todoList.displayTodos();
+    },
+    toggleAll: function() {
+        todoList.toggleAll();
+    },
+    addTodo: function() {
+        var addTodoTextInput = document.getElementById('addTodoTextInput');
+        todoList.addNewTodo(addTodoTextInput.value);
+        addTodoTextInput.value = "";
+    }
+};
 
-var displayTodosButton = document.getElementById('displayTodosButton');
-var toggleAllButton = document.getElementById('toggleAllButton');
+// facebook clone
 
-displayTodosButton.addEventListener('click', function() {
-    todoList.displayTodos();
-});
+// var dataBase = [
+//     {
+//         userName: "Tom",
+//         password: "666"
+//     },
+//     {
+//         userName: "Sally",
+//         password: "123"
+//     },
+//     {
+//         userName: "Ingrid",
+//         password: "555"
+//     }
+// ];
 
-toggleAllButton.addEventListener('click', function() {
-    todoList.toggleAll();
-});
+// var newsFeed = [
+//     {
+//         userName: "Bob",
+//         timiLine: "So tired from all that learning"
+//     },
+//     {
+//         userName: "Sally",
+//         timiLine: "I hate my shitty life"
+//     },
+//     {
+//         userName: "Mike",
+//         timiLine: "Js is preety cool!"
+//     }
+// ];
+
+// function isUserValid(userName, password) {
+//     for (var i = 0; i < dataBase.length; i++) {
+//         if (dataBase[i].userName === userName &&
+//             dataBase[i].password === password) {
+//                 return true;
+//         }
+//     }
+//     return false;
+// }
+
+// function signIn(userName, password) {
+//     if (isUserValid(userName, password)) {
+//         console.log(newsFeed);
+//     } else {
+//         alert("Sorry, wrong username or password");
+//     }
+// }
+
+// var userNamePrompt = prompt("What's your user name?");
+// var passwordPrompt = prompt("What's your password?");
+ 
+// signIn(userNamePrompt, passwordPrompt);
