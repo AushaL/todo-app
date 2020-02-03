@@ -1,12 +1,12 @@
-var todoList = { // 0. Объект включает в себя весь функционал программы
-    todos: [], // 1. Массив в который сохраненяются данные
-    addNewTodo: function(todoText) {  // 3. Добавление новых данных в массив
+var todoList = {
+    todos: [], 
+    addNewTodo: function(todoText) {  
         this.todos.push({
             todoText: todoText,
             completed: false
         });
     },
-    changeTodo: function(position, todoText) { // 4. Изменение данных 
+    changeTodo: function(position, todoText) { 
         this.todos[position].todoText = todoText;
     },
     deleteTodo: function(position) { // 5. Удаление данных
@@ -51,10 +51,8 @@ var handlers = {
         changeTodoTextInput.value = "";
         view.displayTodos();
     },
-    deleteTodo: function () {
-        var deleteTodoPositionInput = document.getElementById('deleteTodoPositionInput');
-        todoList.deleteTodo(deleteTodoPositionInput.valueAsNumber);
-        deleteTodoPositionInput.value = "";
+    deleteTodo: function (position) {
+        todoList.deleteTodo(position);
         view.displayTodos();
     },
     toggleCompleted: function () {
@@ -84,17 +82,54 @@ var view = {
                 todoTextWithCompletion = '( ) ' + todo.todoText;
             }
 
+            todoLi.id = i;
             todoLi.textContent = todoTextWithCompletion;
+            todoLi.appendChild(this.createDeleteButton());
             todosUl.appendChild(todoLi);
         }
+    },
+    createDeleteButton: function () {
+        var deleteButton = document.createElement('button');
+        deleteButton.textContent = 'Delete';
+        deleteButton.className = 'deleteButton';
+        return deleteButton;
+    },
+    setUpEvenListeners: function() {
+        var todosUl = document.querySelector('ul');
+        todosUl/addEventListener('click', function(event) {
+        var elementClicked = event.target;
+        if (elementClicked.className === 'deleteButton') {
+            handlers.deleteTodo(parseInt(elementClicked.parentNode.id));
+        }
+    });
     }
 };
 
-var a;
-console.log(a);
+view.setUpEvenListeners();
 
-if (a === undefined) {
-    console.log('a is undefined!');
-} else {
-    console.log('a is defined!');
+// extra code
+
+function runWithDebugger (myFunction) {
+    
+    myFunction();
 }
+
+setTimeout(function() {
+    console.log('Wake up Neo!');
+}, 1000)
+
+var characters = ['Neo', 'Trinity', 'Morfeus'];
+
+function logMatrixName(name) {
+    console.log(name)
+}
+
+characters.forEach(logMatrixName);
+
+function forEach(myArray, myFunction) {
+    for(var i = 0; i < myArray.length; i++) {
+        myFunction(myArray[i]);
+    }
+}
+
+forEach(characters, logMatrixName);
